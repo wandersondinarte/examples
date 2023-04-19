@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Cookie Consent Example</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <style>
+    body {
+      padding-top: 50px;
+    }
+
+    .cookie-disclaimer {
+      background: #000000;
+      color: #FFF;
+      opacity: 0.8;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      height: 150px;
+      position: fixed;
+    }
+    .cookie-disclaimer .container {
+      text-align: center;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    .cookie-disclaimer .cookie-close{
+      float: right;
+      padding: 10px;
+      cursor: pointer;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function() { 
+        var cookie = false;
+        var cookieContent = $('.cookie-disclaimer');
+
+        checkCookie();
+
+        if (cookie === true) {
+          cookieContent.hide();
+        }
+
+        function setCookie(cname, cvalue, exdays) {
+          var d = new Date();
+          d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+          var expires = "expires=" + d.toGMTString();
+          document.cookie = cname + "=" + cvalue + "; " + expires;
+        }
+
+        function getCookie(cname) {
+          var name = cname + "=";
+          var ca = document.cookie.split(';');
+          for (var i = 0; i < ca.length; i++) {
+            var c = ca[i].trim();
+            if (c.indexOf(name) === 0) return c.substring(name.length, c.length);
+          }
+          return "";
+        }
+
+        function checkCookie() {
+          var check = getCookie("acookie");
+          if (check !== "") {
+            return cookie = true;
+          } else {
+              return cookie = false; //setCookie("acookie", "accepted", 365);
+          }
+          
+        }
+        $('.accept-cookie').click(function () {
+          setCookie("acookie", "accepted", 365);
+          cookieContent.hide(500);
+        });
+    });
+  </script>
+</head>
+<body>
+
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Brand</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+  
+  <div class="container">
+    
+    <div class="text-center">
+      <h1>Bootstrap Cookie Consent Example</h1>
+      <p class="lead"><a href="https://freefrontend.com/bootstrap-cookie-consent/">https://freefrontend.com/bootstrap-cookie-consent/</a></p>
+    </div>
+    
+  </div><!-- /.container -->
+  <div class="cookie-disclaimer">
+    <div class="cookie-close accept-cookie"><i class="fa fa-times"></i></div>
+    <div class="container">
+      <p>Usamos cookies para segurança, melhor experiência e personalização de conteúdo de acordo com a nossa Política de Privacidade.</p>
+      <p>Clique em CONFIGURAR COOKIES para gerenciar suas preferências.</p>
+      <button type="button" class="btn btn-default accept-cookie">Configurar Cookies</button>
+      <button type="button" class="btn btn-primary accept-cookie">Permitir Todos</button>
+    </div>
+  </div>  
+
+</body>
+</html>

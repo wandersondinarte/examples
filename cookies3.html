@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Exemplo Bootstrap 3 - Banner de cookie</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+  <div class="alert alert-warning alert-dismissible" role="alert">
+    Este site usa cookies para melhorar a sua experiência de navegação. <a href="#">Saiba mais</a>
+    <button type="button" class="btn btn-primary btn-sm" data-dismiss="alert" aria-label="Fechar">Permitir todos</button>
+    <button type="button" class="btn btn-link btn-sm" data-toggle="modal" data-target="#configurar-cookies">Configurar cookies</button>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="configurar-cookies" tabindex="-1" role="dialog" aria-labelledby="configurar-cookies-label">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="configurar-cookies-label">Configurações de cookies</h4>
+        </div>
+        <div class="modal-body">
+          Aqui você pode configurar suas preferências de cookies.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary">Salvar alterações</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
