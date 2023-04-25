@@ -28,6 +28,50 @@
 		<script type="text/javascript" src="https://www.portalcoren-rs.gov.br/assets/js/jquery.lazyload.js"></script>
 		<script type="text/javascript" src="https://www.portalcoren-rs.gov.br/assets/js/query.maskedinput.js"></script>
 		<script type="text/javascript" src="https://www.portalcoren-rs.gov.br/assets/js/jquery.lightbox-0.5.js"></script>
+        <style>
+            h4 {
+                font-family: 'MalgunGothic-Bold', 'DIN', Tahoma, Geneva, Sans-serif;
+                font-size: 140%;
+                text-transform: uppercase;
+                color: #3180B3;
+            }
+            p {
+                font-family: 'MalgunGothic-Normal', 'DIN-Light', Tahoma, Geneva, Sans-serif;
+                font-size: 110%;           
+            }
+            .card {
+                height:300px;
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                transition: 0.3s;
+                border: solid 1px #3180B3;
+                border-radius: 5px;
+                background-color: #ffffff;
+                margin-bottom: 25px;
+                padding-left:4%;
+                padding-right:4%;
+                padding-top:4%;
+                padding-bottom:4%;
+            }
+            .card:hover {
+                background-color: #f1f1f1;
+            }
+            .card-text {
+                float:left;
+                width:32%;
+            }
+            .card-map {
+                float:right;
+                width:60%;
+                height:100%;
+
+                border: solid 1px #f1f1f1;
+                border-radius: 5px;
+            }
+            .card-map .iframe-map {
+                border: solid 1px #f1f1f1;
+                border-radius: 5px;
+            }
+        </style>
 	</head>
 
 	<body>
@@ -408,24 +452,22 @@
         	<div class="titulo">Sede e subseções</div>
             <br />
 
-            <div class="card" style="padding-left:10%;padding-right:10%;padding-top:3%;padding-bottom:3%;height:200px;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);transition: 0.3s;border-radius: 5px;">
-                <div class="box" style="float:left;width:45%;">
+            <div class="card">
+                <div class="card-text" style="float:left;width:30%;">
                     <div class="subtitulo">Sede de Porto Alegre</div>
-                        Av. Plínio Brasil Milano, 1155<br />
-                        Bairro Higienópolis Porto Alegre - RS<br />
-                        CEP 90520-002<br />
-                        <br />
-                        <span>Telefone: (051) 3378.5500</span><br />
-                        <br />
-                        <br />
+                    Av. Plínio Brasil Milano, 1155
+                    <br />
+                    Higienópolis - Porto Alegre - RS
+                    <br />
+                    CEP 90520-002
+                    <br />
+                    <br />
+                    Telefone: (051) 3378.5500
                 </div>
-                <div class="box" style="float:right;width:35%;">
-                    <img src="images/mapa-sede-porto-alegre.png" alt="Abrir o mapa" height="200px" style="vertical-align:middle; border-radius: 5px 5px 0 0;">
+                <div class="card-map">
+                    <iframe class="iframe-map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13818.252974151872!2d-51.17984!3d-30.020695000000003!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951979d5f2e00fb9%3A0xfa0dc1c603ad6c42!2sCoren-RS%20-%20Sede%20(atendimento%20presencial%20exclusivamente%20agendado)!5e0!3m2!1spt-BR!2sbr!4v1682037376552!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
-            <br />
-            <br />  
-            <br />
             <div class="card" style="height:200px;">
                 <div class="box" style="float:left;width:50%;">
                     <div class="subtitulo">Subseção de Caxias do Sul</div>
@@ -459,7 +501,7 @@
                     <br />
                     <br />
                 </div>
-                <div class="box" style="float:right;width:50%;">
+                <div class="box">
                     <img src="images/mapa-subsecao-passo-fundo.png" alt="Abrir o mapa" height="200px" style="vertical-align:middle;">
                 </div>
             </div>
@@ -596,13 +638,16 @@
 
 		<div id="goTop" class="lazy" data-original="https://www.portalcoren-rs.gov.br/assets/images/icn-top.png" style="background-image:url(https://www.portalcoren-rs.gov.br/assets/images/icn-top.png);" onclick="$('html, body').animate({scrollTop:0}, 'slow');"></div>
 
-						<script>
+        <a href="https://www.iubenda.com/privacy-policy/47312960/cookie-policy" class="iubenda-white iubenda-noiframe iubenda-embed iubenda-noiframe " title="Política de Cookies ">Política de Cookies</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+
+		<script>
 			$(function() {
 				$(".lazy").lazyload({
 					event: "scroll",
 					effect: "fadeIn"
 				});
 			});
+        
 		</script>
 		
 				<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -614,6 +659,7 @@
 
 		gtag('config', 'G-LLSVVQKLWP');
 		</script>
+        
 			</body>
 
 </html>
