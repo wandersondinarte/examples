@@ -1,0 +1,115 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <style>
+.cookieConsentContainer {       
+    
+    text-align: center;
+    color: #fff;
+    background: #3180B3;
+    border: 1px solid; 
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 80%;
+    min-height: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 20px 40px 20px 40px;
+    position: fixed;
+    bottom: 0 !important;
+    left: 0 !important;
+    /*display: none;*/
+}
+.cookieConsentContainer .cookieConsentDescription {
+    display:inline-flex;
+    font-family: OpenSans, arial, sans-serif;
+    text-align: justify;
+    font-size: 14px;
+    line-height: 20px;
+    margin-right:10px;
+}.cookieConsentContainer .cookieConsentButton {
+    display:inline-flex;
+    font-family: OpenSans, arial, sans-serif;
+    color: #fff;
+    border: 1px solid #fff;
+    font-size: 14px;
+    font-weight: 700;
+    /*margin-top: 14px;*/
+    background: #3180B3;
+    box-sizing: border-box;
+    padding: 15px 24px;
+    text-align: center;
+    /*width:20%;*/
+    margin-left:10px;
+    transition: background .3s
+}
+.cookieConsentContainer .cookieConsentButton:hover {
+    cursor: pointer;
+    background: #1a425c;
+}
+@media (max-width:980px) {
+    .cookieConsentContainer {
+        display:block;
+    }
+    .cookieConsentContainer .cookieConsentDescription {
+        display:block;
+    }
+    .cookieConsentContainer .cookieConsentButton {
+         display:block;
+    }
+}
+    </style> 
+</head>
+<body>
+
+</body>
+    <script>
+        var cookieLink = '<a href="https://www.portalcoren-rs.gov.br/index.php?pagina=politica-de-privacidade/" target="_blank"><u>Polí­tica de Privacidade</u></a>',
+            cookieDescricao = "Utilizamos cookies para melhorar a sua experiência de navegação no portal. Ao utilizar o portal, você concorda com a política de cookies. Para mais informações acesse a nossa política de privacidade, para aceitar clique em ACEITO. ",
+            cookieBotao = "Aceitar";
+
+        function cookieMensagemFadeIn(e, o) {
+            var i = document.getElementById(e);
+            i.style.opacity = 0, i.style.display = o || "inline-flex",
+                function e() {
+                    var o = parseFloat(i.style.opacity);
+                    (o += .02) > 1 || (i.style.opacity = o, requestAnimationFrame(e))
+                }()
+        }
+        function cookieMensagemFadeOut(e) {
+            var o = document.getElementById(e);
+            o.style.opacity = 1,
+                function e() {
+                    (o.style.opacity -= .02) < 0 ? o.style.display = "none" : requestAnimationFrame(e)
+                }()
+        }
+        function setCookie(e, o, i) {
+            var t = "";
+            if (i) {
+                var n = new Date;
+                n.setTime(n.getTime() + 24 * i * 60 * 60 * 1e3), t = "; expires=" + n.toUTCString()
+            }
+            document.cookie = e + "=" + (o || "") + t + "; path=/"
+        }
+        function getCookie(e) {
+            for (var o = e + "=", i = document.cookie.split(";"), t = 0; t < i.length; t++) {
+                for (var n = i[t];
+                    " " == n.charAt(0);) n = n.substring(1, n.length);
+                if (0 == n.indexOf(o)) return n.substring(o.length, n.length)
+            }
+            return null
+        }
+        function eraseCookie(e) {
+            document.cookie = e + "=; Max-Age=-99999999;"
+        }
+        function cookieConsentimento() {
+            getCookie("cookie-consent") || (document.body.innerHTML += '<div class="cookieConsentContainer" id="cookieConsentContainer"><div class="cookieConsentDescription">' + cookieDescricao + '</div><div class="cookieConsentButton"><a onClick="CookieAceitar();">' + cookieBotao + "</a></div></div>", cookieMensagemFadeIn("cookieConsentContainer"))
+        }
+        function CookieAceitar() {
+            setCookie("cookie-consent", "1", 7), cookieMensagemFadeOut("cookieConsent8%Container")
+        }
+        window.onload = function() {
+            cookieConsentimento()
+        };
+    </script>
+</html>
